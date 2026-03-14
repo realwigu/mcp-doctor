@@ -9,7 +9,7 @@
 ```
 I built mcp-doctor — a CLI that finds every MCP server across your dev tools (Claude Code, Cursor, VS Code, Windsurf), tests connections, flags security issues, and benchmarks latency.
 
-One command: npx mcp-doctor scan
+One command: npx @wigu/mcp-doctor scan
 
 Open source, zero config.
 
@@ -28,7 +28,7 @@ MCP servers are everywhere now but there's no easy way to:
 
 So I built mcp-doctor.
 
-npx mcp-doctor scan
+npx @wigu/mcp-doctor scan
 
 github.com/realwigu/mcp-doctor
 ```
@@ -40,9 +40,9 @@ You probably have MCP servers you forgot about, leaking API keys you didn't know
 
 mcp-doctor finds them all:
 
-npx mcp-doctor scan      — test connections
-npx mcp-doctor security  — find leaked secrets
-npx mcp-doctor bench     — benchmark latency
+npx @wigu/mcp-doctor scan      — test connections
+npx @wigu/mcp-doctor security  — find leaked secrets
+npx @wigu/mcp-doctor bench     — benchmark latency
 
 github.com/realwigu/mcp-doctor
 ```
@@ -77,7 +77,7 @@ So I built **mcp-doctor** — a zero-config CLI that:
 
 ### Quick start
 
-    npx mcp-doctor scan
+    npx @wigu/mcp-doctor scan
 
 No config needed — it auto-discovers servers from all known config file locations.
 
@@ -114,9 +114,9 @@ mcp-doctor is a zero-config CLI that scans all your MCP configurations, tests se
 
 Usage:
 
-    npx mcp-doctor scan       # discover and test all servers
-    npx mcp-doctor security   # audit for security issues
-    npx mcp-doctor bench      # benchmark response times
+    npx @wigu/mcp-doctor scan       # discover and test all servers
+    npx @wigu/mcp-doctor security   # audit for security issues
+    npx @wigu/mcp-doctor bench      # benchmark response times
 
 It auto-discovers configs from Claude Code, Cursor, VS Code, Windsurf, and Claude Desktop. TypeScript, MIT licensed.
 
@@ -146,9 +146,9 @@ If you're using AI coding tools like Claude Code, Cursor, or VS Code with MCP se
 
 mcp-doctor fixes this with three commands:
 
-npx mcp-doctor scan      → test all connections
-npx mcp-doctor security  → find security issues
-npx mcp-doctor bench     → benchmark latency
+npx @wigu/mcp-doctor scan      → test all connections
+npx @wigu/mcp-doctor security  → find security issues
+npx @wigu/mcp-doctor bench     → benchmark latency
 
 Zero config. Works across all major AI dev tools.
 
