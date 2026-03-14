@@ -1,6 +1,6 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node >= 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
-[![npm](https://img.shields.io/npm/v/mcp-doctor.svg)](https://www.npmjs.com/package/mcp-doctor)
+[![npm](https://img.shields.io/npm/v/@wigu/mcp-doctor.svg)](https://www.npmjs.com/package/@wigu/mcp-doctor)
 
 # mcp-doctor
 
@@ -17,7 +17,7 @@ A fast CLI that finds every MCP server configured across your dev tools, tests c
 ## Quick Start
 
 ```bash
-npx mcp-doctor scan
+npx @wigu/mcp-doctor scan
 ```
 
 ## Commands
@@ -100,10 +100,10 @@ mcp-doctor reads each tool's config file from its standard location and merges a
 
 ```bash
 # Run directly
-npx mcp-doctor scan
+npx @wigu/mcp-doctor scan
 
 # Or install globally
-npm install -g mcp-doctor
+npm install -g @wigu/mcp-doctor
 mcp-doctor scan
 ```
 
