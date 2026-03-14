@@ -140,11 +140,22 @@ export function printBenchResults(results: ScanResult[]): void {
   console.log();
 }
 
-export function printHeader(): void {
+export function printHeader(version?: string): void {
+  const ver = version ?? "0.0.0";
+  const title = `mcp-doctor v${ver}`;
+  const subtitle = "MCP Server Diagnostics";
+  const width = Math.max(title.length, subtitle.length) + 6;
+  const pad = (s: string) => {
+    const left = Math.floor((width - s.length) / 2);
+    const right = width - s.length - left;
+    return " ".repeat(left) + s + " ".repeat(right);
+  };
+  const border = "─".repeat(width);
+
   console.log();
-  console.log(chalk.bold.cyan("  ┌─────────────────────────┐"));
-  console.log(chalk.bold.cyan("  │     mcp-doctor v0.1     │"));
-  console.log(chalk.bold.cyan("  │  MCP Server Diagnostics  │"));
-  console.log(chalk.bold.cyan("  └─────────────────────────┘"));
+  console.log(chalk.bold.cyan(`  ┌${border}┐`));
+  console.log(chalk.bold.cyan(`  │${pad(title)}│`));
+  console.log(chalk.bold.cyan(`  │${pad(subtitle)}│`));
+  console.log(chalk.bold.cyan(`  └${border}┘`));
   console.log();
 }

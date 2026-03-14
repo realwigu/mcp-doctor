@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 import { Command } from "commander";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import ora from "ora";
 import { scanConfigs } from "./scanner.js";
 import { testServer } from "./tester.js";
@@ -12,18 +15,22 @@ import {
   printBenchResults,
 } from "./ui.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const pkg = JSON.parse(readFileSync(join(__dirname, "..", "package.json"), "utf-8"));
+
 const program = new Command();
 
 program
   .name("mcp-doctor")
   .description("Diagnose, secure, and benchmark your MCP servers")
-  .version("0.1.0");
+  .version(pkg.version);
 
 program
   .command("scan")
   .description("Scan and test all MCP server connections")
   .action(async () => {
-    printHeader();
+    printHeader(pkg.version);
 
     const spinner = ora("Discovering MCP servers...").start();
     const servers = await scanConfigs();
@@ -50,7 +57,7 @@ program
   .command("security")
   .description("Check MCP configs for security issues")
   .action(async () => {
-    printHeader();
+    printHeader(pkg.version);
 
     const spinner = ora("Discovering MCP servers...").start();
     const servers = await scanConfigs();
@@ -74,7 +81,7 @@ program
   .command("bench")
   .description("Benchmark MCP server response times")
   .action(async () => {
-    printHeader();
+    printHeader(pkg.version);
 
     const spinner = ora("Discovering MCP servers...").start();
     const servers = await scanConfigs();

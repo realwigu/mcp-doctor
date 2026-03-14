@@ -39,10 +39,15 @@ export async function testServer(server: McpServer): Promise<ScanResult> {
     let stdout = "";
 
     const env = { ...process.env, ...server.env };
-    const child = spawn(server.command!, server.args ?? [], {
+    const cmd = server.command!;
+    const args = server.args ?? [];
+
+    // On Windows, use shell to resolve commands; on Unix, spawn directly
+    const useShell = process.platform === "win32";
+    const child = spawn(cmd, args, {
       env,
       stdio: ["pipe", "pipe", "pipe"],
-      shell: true,
+      ...(useShell ? { shell: true } : {}),
     });
 
     const timer = setTimeout(() => {
