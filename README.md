@@ -14,6 +14,8 @@ A fast CLI that finds every MCP server configured across your dev tools, tests c
   <img src="assets/screenshot-scan.svg" alt="mcp-doctor scan" width="820">
 </p>
 
+[![mcp-doctor MCP server](https://glama.ai/mcp/servers/realwigu/mcp-doctor/badges/card.svg)](https://glama.ai/mcp/servers/realwigu/mcp-doctor)
+
 ## Quick Start
 
 ```bash
