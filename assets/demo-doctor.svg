@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="740" viewBox="0 0 820 740">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .title-bar { fill: #313244; }
+      .btn-close { fill: #f38ba8; }
+      .btn-min { fill: #f9e2af; }
+      .btn-max { fill: #a6e3a1; }
+      .title-text { fill: #6c7086; font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; font-size: 12px; }
+      .t { fill: #cdd6f4; font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; font-size: 13px; }
+      .cyan { fill: #89dceb; }
+      .green { fill: #a6e3a1; }
+      .yellow { fill: #f9e2af; }
+      .red { fill: #f38ba8; }
+      .dim { fill: #6c7086; }
+      .bold { font-weight: bold; }
+      .white { fill: #cdd6f4; }
+      .prompt { fill: #a6e3a1; }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .phase1 { animation: fadeIn 0.3s ease-in 0.5s both; }
+      .phase2 { animation: fadeIn 0.3s ease-in 1.2s both; }
+      .phase3 { animation: fadeIn 0.3s ease-in 2.0s both; }
+      .phase4 { animation: fadeIn 0.3s ease-in 2.8s both; }
+      .phase5 { animation: fadeIn 0.3s ease-in 3.5s both; }
+    </style>
+  </defs>
+
+  <!-- Window -->
+  <rect class="bg" width="820" height="740" rx="10"/>
+  <rect class="title-bar" width="820" height="36" rx="10"/>
+  <rect class="title-bar" width="820" height="16" y="20"/>
+  <circle class="btn-close" cx="20" cy="18" r="6"/>
+  <circle class="btn-min" cx="40" cy="18" r="6"/>
+  <circle class="btn-max" cx="60" cy="18" r="6"/>
+  <text class="title-text" x="370" y="22" text-anchor="middle">mcp-doctor — Terminal</text>
+
+  <!-- Prompt -->
+  <text class="prompt" x="20" y="60">$</text>
+  <text class="t" x="36" y="60"> npx @wigu/mcp-doctor doctor</text>
+
+  <!-- Header (phase1) -->
+  <g class="phase1">
+    <text class="cyan bold" x="20" y="94">  ┌──────────────────────────────┐</text>
+    <text class="cyan bold" x="20" y="112">  │       mcp-doctor v0.4.0      │</text>
+    <text class="cyan bold" x="20" y="130">  │    MCP Server Diagnostics     │</text>
+    <text class="cyan bold" x="20" y="148">  └──────────────────────────────┘</text>
+    <text class="green" x="20" y="176">  ✔</text><text class="t" x="44" y="176">Found 4 server(s)</text>
+  </g>
+
+  <!-- Scan results (phase2) -->
+  <g class="phase2">
+    <text class="green" x="20" y="206">  ✔</text><text class="t" x="44" y="206">Connection tests complete</text>
+
+    <text class="dim" x="20" y="232">  ┌────────────────┬────────────┬─────────┬───────┬──────────────────────────┐</text>
+    <text class="white" x="20" y="250">  │</text><text class="white bold" x="34" y="250"> Server</text>
+    <text class="white" x="166" y="250">│</text><text class="white bold" x="174" y="250"> Status</text>
+    <text class="white" x="268" y="250">│</text><text class="white bold" x="276" y="250"> Latency</text>
+    <text class="white" x="340" y="250">│</text><text class="white bold" x="348" y="250"> Tools</text>
+    <text class="white" x="396" y="250">│</text><text class="white bold" x="404" y="250"> Details</text>
+    <text class="white" x="800" y="250">│</text>
+    <text class="dim" x="20" y="268">  ├────────────────┼────────────┼─────────┼───────┼──────────────────────────┤</text>
+
+    <text class="dim" x="20" y="286">  │</text><text class="cyan" x="34" y="286"> filesystem</text>
+    <text class="dim" x="166" y="286">│</text><text class="green" x="174" y="286"> ✓ OK</text>
+    <text class="dim" x="268" y="286">│</text><text class="t" x="276" y="286"> 245ms</text>
+    <text class="dim" x="340" y="286">│</text><text class="t" x="348" y="286"> 12</text>
+    <text class="dim" x="396" y="286">│</text><text class="dim" x="800" y="286">│</text>
+
+    <text class="dim" x="20" y="304">  │</text><text class="cyan" x="34" y="304"> github</text>
+    <text class="dim" x="166" y="304">│</text><text class="green" x="174" y="304"> ✓ OK</text>
+    <text class="dim" x="268" y="304">│</text><text class="t" x="276" y="304"> 512ms</text>
+    <text class="dim" x="340" y="304">│</text><text class="t" x="348" y="304"> 8</text>
+    <text class="dim" x="396" y="304">│</text><text class="dim" x="800" y="304">│</text>
+
+    <text class="dim" x="20" y="322">  │</text><text class="cyan" x="34" y="322"> postgres</text>
+    <text class="dim" x="166" y="322">│</text><text class="green" x="174" y="322"> ✓ OK</text>
+    <text class="dim" x="268" y="322">│</text><text class="t" x="276" y="322"> 189ms</text>
+    <text class="dim" x="340" y="322">│</text><text class="t" x="348" y="322"> 5</text>
+    <text class="dim" x="396" y="322">│</text><text class="dim" x="800" y="322">│</text>
+
+    <text class="dim" x="20" y="340">  │</text><text class="cyan" x="34" y="340"> slack</text>
+    <text class="dim" x="166" y="340">│</text><text class="yellow" x="174" y="340"> ⏱ Timeout</text>
+    <text class="dim" x="268" y="340">│</text><text class="t" x="276" y="340"> —</text>
+    <text class="dim" x="340" y="340">│</text><text class="t" x="348" y="340"> —</text>
+    <text class="dim" x="396" y="340">│</text><text class="dim" x="404" y="340"> No response within 10000ms</text>
+    <text class="dim" x="800" y="340">│</text>
+
+    <text class="dim" x="20" y="358">  └────────────────┴────────────┴─────────┴───────┴──────────────────────────┘</text>
+
+    <text class="t" x="20" y="384">  </text><text class="green" x="28" y="384">3/4</text><text class="t" x="60" y="384"> servers responding</text>
+  </g>
+
+  <!-- Security results (phase3) -->
+  <g class="phase3">
+    <text class="green" x="20" y="416">  ✔</text><text class="t" x="44" y="416">Security scan complete</text>
+
+    <text class="dim" x="20" y="442">  ┌──────────┬────────────────┬────────────────────────────────────────────┐</text>
+    <text class="white" x="20" y="460">  │</text><text class="white bold" x="34" y="460"> Severity</text>
+    <text class="white" x="118" y="460">│</text><text class="white bold" x="126" y="460"> Server</text>
+    <text class="white" x="258" y="460">│</text><text class="white bold" x="266" y="460"> Issue</text>
+    <text class="white" x="800" y="460">│</text>
+    <text class="dim" x="20" y="478">  ├──────────┼────────────────┼────────────────────────────────────────────┤</text>
+
+    <text class="dim" x="20" y="496">  │</text><text class="red" x="34" y="496"> HIGH</text>
+    <text class="dim" x="118" y="496">│</text><text class="cyan" x="126" y="496"> postgres</text>
+    <text class="dim" x="258" y="496">│</text><text class="t" x="266" y="496"> Hardcoded secret in env var "DB_PASSWORD"</text>
+    <text class="dim" x="800" y="496">│</text>
+
+    <text class="dim" x="20" y="514">  │</text><text class="yellow" x="34" y="514"> MEDIUM</text>
+    <text class="dim" x="118" y="514">│</text><text class="cyan" x="126" y="514"> slack</text>
+    <text class="dim" x="258" y="514">│</text><text class="t" x="266" y="514"> Possible hardcoded secret in "SLACK_TOKEN"</text>
+    <text class="dim" x="800" y="514">│</text>
+
+    <text class="dim" x="20" y="532">  └──────────┴────────────────┴────────────────────────────────────────────┘</text>
+    <text class="t" x="20" y="558">  Found </text><text class="yellow" x="72" y="558">2</text><text class="t" x="82" y="558"> issue(s)</text>
+  </g>
+
+  <!-- Bench results (phase4) -->
+  <g class="phase4">
+    <text class="dim" x="20" y="588">  ┌─────┬────────────────┬─────────┬──────────┐</text>
+    <text class="white" x="20" y="606">  │</text><text class="white bold" x="34" y="606"> #</text>
+    <text class="white" x="66" y="606">│</text><text class="white bold" x="74" y="606"> Server</text>
+    <text class="white" x="210" y="606">│</text><text class="white bold" x="218" y="606"> Latency</text>
+    <text class="white" x="286" y="606">│</text><text class="white bold" x="294" y="606"> Rating</text>
+    <text class="white" x="386" y="606">│</text>
+    <text class="dim" x="20" y="624">  ├─────┼────────────────┼─────────┼──────────┤</text>
+
+    <text class="dim" x="20" y="642">  │</text><text class="t" x="34" y="642"> 1</text>
+    <text class="dim" x="66" y="642">│</text><text class="cyan" x="74" y="642"> postgres</text>
+    <text class="dim" x="210" y="642">│</text><text class="t" x="218" y="642"> 189ms</text>
+    <text class="dim" x="286" y="642">│</text><text class="green" x="294" y="642"> ⚡ Fast</text>
+    <text class="dim" x="386" y="642">│</text>
+
+    <text class="dim" x="20" y="660">  │</text><text class="t" x="34" y="660"> 2</text>
+    <text class="dim" x="66" y="660">│</text><text class="cyan" x="74" y="660"> filesystem</text>
+    <text class="dim" x="210" y="660">│</text><text class="t" x="218" y="660"> 245ms</text>
+    <text class="dim" x="286" y="660">│</text><text class="green" x="294" y="660"> ⚡ Fast</text>
+    <text class="dim" x="386" y="660">│</text>
+
+    <text class="dim" x="20" y="678">  │</text><text class="t" x="34" y="678"> 3</text>
+    <text class="dim" x="66" y="678">│</text><text class="cyan" x="74" y="678"> github</text>
+    <text class="dim" x="210" y="678">│</text><text class="t" x="218" y="678"> 512ms</text>
+    <text class="dim" x="286" y="678">│</text><text class="yellow" x="294" y="678"> ⏳ OK</text>
+    <text class="dim" x="386" y="678">│</text>
+
+    <text class="dim" x="20" y="696">  └─────┴────────────────┴─────────┴──────────┘</text>
+  </g>
+
+  <!-- Summary (phase5) -->
+  <g class="phase5">
+    <text class="white bold" x="20" y="726">  Summary</text>
+    <text class="dim" x="20" y="735">  ────────────────────────────────────────</text>
+  </g>
+</svg>

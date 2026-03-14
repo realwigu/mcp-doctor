@@ -10,7 +10,7 @@
 Zero-config CLI that auto-discovers MCP server configs across Claude Code, Cursor, VS Code, Windsurf, and Claude Desktop — then tests connections, flags security issues, and benchmarks latency in seconds.
 
 <p align="center">
-  <img src="assets/screenshot-scan.svg" alt="mcp-doctor scan" width="820">
+  <img src="assets/demo-doctor.svg" alt="mcp-doctor doctor" width="820">
 </p>
 
 ## Why?
