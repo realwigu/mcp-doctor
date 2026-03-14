@@ -8,6 +8,12 @@
 
 A fast CLI that finds every MCP server configured across your dev tools, tests connections, flags security issues, and benchmarks latency — in seconds.
 
+
+
+<p align="center">
+  <img src="assets/screenshot-scan.svg" alt="mcp-doctor scan" width="820">
+</p>
+
 ## Quick Start
 
 ```bash
