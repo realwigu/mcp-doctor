@@ -1,0 +1,53 @@
+name: "MCP Doctor"
+description: "Diagnose, secure, and benchmark your MCP servers in CI"
+author: "realwigu"
+branding:
+  icon: "activity"
+  color: "blue"
+
+inputs:
+  command:
+    description: "Command to run: doctor, scan, security, or bench"
+    required: false
+    default: "doctor"
+  fail-on-error:
+    description: "Fail the workflow if any server is unhealthy or has security issues"
+    required: false
+    default: "false"
+
+outputs:
+  result:
+    description: "JSON output from mcp-doctor"
+    value: ${{ steps.run.outputs.result }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "22"
+
+    - name: Run mcp-doctor
+      id: run
+      shell: bash
+      run: |
+        RESULT=$(npx -y @wigu/mcp-doctor ${{ inputs.command }} --json 2>/dev/null || true)
+        echo "result<<EOF" >> $GITHUB_OUTPUT
+        echo "$RESULT" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        echo "$RESULT" | head -100
+
+    - name: Check for failures
+      if: inputs.fail-on-error == 'true'
+      shell: bash
+      run: |
+        RESULT='${{ steps.run.outputs.result }}'
+        if echo "$RESULT" | grep -q '"status":"error"'; then
+          echo "::error::MCP Doctor found unhealthy servers"
+          exit 1
+        fi
+        if echo "$RESULT" | grep -q '"severity":"high"'; then
+          echo "::error::MCP Doctor found high-severity security issues"
+          exit 1
+        fi

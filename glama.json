@@ -1,0 +1,9 @@
+{
+  "name": "mcp-doctor",
+  "description": "Diagnose, secure, and benchmark your MCP servers. Zero-config CLI that auto-discovers MCP configs across Claude Code, Cursor, VS Code, Windsurf, and Claude Desktop.",
+  "category": "Developer Tools",
+  "tags": ["security", "diagnostics", "testing", "benchmarking", "mcp", "mcp-server"],
+  "author": "realwigu",
+  "license": "MIT",
+  "repository": "https://github.com/realwigu/mcp-doctor"
+}
