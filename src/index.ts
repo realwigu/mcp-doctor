@@ -105,4 +105,16 @@ program
     printBenchResults(results);
   });
 
-program.parse();
+program
+  .command("serve")
+  .description("Run as an MCP server (stdio transport)")
+  .action(async () => {
+    await import("./server.js");
+  });
+
+// Auto-detect: if no args and stdin is piped, run as MCP server
+if (process.argv.length <= 2 && !process.stdin.isTTY) {
+  import("./server.js");
+} else {
+  program.parse();
+}
